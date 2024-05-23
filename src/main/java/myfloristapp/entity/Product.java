@@ -1,8 +1,10 @@
 package myfloristapp.entity;
 
-import jakarta.persistence.*;
-
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -10,34 +12,21 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPRODUCT;
-    private double price;
+
     private String name;
-
-    @Enumerated(EnumType.STRING)
-    private ProductType type;
-
+    private double price;
+    private String type;
     private String color;
     private double height;
-
-    @Enumerated(EnumType.STRING)
-    private MaterialType materialType;
+    private String materialType;
 
     // Getters and Setters
-
     public int getIdPRODUCT() {
         return idPRODUCT;
     }
 
     public void setIdPRODUCT(int idPRODUCT) {
         this.idPRODUCT = idPRODUCT;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public String getName() {
@@ -48,11 +37,19 @@ public class Product {
         this.name = name;
     }
 
-    public ProductType getType() {
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getType() {
         return type;
     }
 
-    public void setType(ProductType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -72,19 +69,11 @@ public class Product {
         this.height = height;
     }
 
-    public MaterialType getMaterialType() {
+    public String getMaterialType() {
         return materialType;
     }
 
-    public void setMaterialType(MaterialType materialType) {
+    public void setMaterialType(String materialType) {
         this.materialType = materialType;
     }
-}
-
-enum ProductType {
-    TREE, FLOWER, DECORATION
-}
-
-enum MaterialType {
-    WOOD, PLASTIC
 }
