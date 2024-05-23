@@ -30,5 +30,5 @@ public class Stock {
     public void setFlorist(Florist florist) {
         this.florist = florist;
     }
-// Getters and Setters
+
 }

@@ -5,9 +5,12 @@ import myfloristapp.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+
 @Component
+@Scope("singleton")
 public class DatabaseChecker implements CommandLineRunner {
 
     private final ProductRepository productRepository;
@@ -28,13 +31,13 @@ public class DatabaseChecker implements CommandLineRunner {
         product.setColor("red");
         product.setName("Rosa");
 
-        // Save the product to the database
+        // Save  to the database
         productRepository.save(product);
 
         // Retrieve the product from the database
         Product retrievedProduct = productRepository.findById(product.getIdPRODUCT()).orElse(null);
 
-        // Check if the product was saved and retrieved successfully
+
         if (retrievedProduct != null) {
             logger.info("Product saved and retrieved successfully: " + retrievedProduct.getName());
         } else {

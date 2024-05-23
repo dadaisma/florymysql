@@ -20,7 +20,7 @@ public class Product {
     private double height;
     private String materialType;
 
-    // Getters and Setters
+
     public int getIdPRODUCT() {
         return idPRODUCT;
     }

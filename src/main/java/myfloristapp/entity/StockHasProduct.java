@@ -41,5 +41,5 @@ public class StockHasProduct {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-// Getters and Setters
+
 }
